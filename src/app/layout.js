@@ -1,7 +1,8 @@
+import { yekan } from '@/utils/fonts'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import Layout from '@/layout/Layout'
+import NextAuthProvider from '@/providers/NextAuthProvider'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={yekan.className}>
+        <NextAuthProvider>
+          <Layout>
+            {children}
+          </Layout>
+        </NextAuthProvider>
+      </body>
     </html>
   )
 }
